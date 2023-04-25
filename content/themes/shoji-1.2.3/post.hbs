@@ -1,0 +1,108 @@
+{{!< default}}
+{{#post}}
+{{#if @labs.members}}
+{{#if access}}
+<progress class="post-progress"></progress>
+{{/if}}
+{{else}}
+<progress class="post-progress"></progress>
+{{/if}}
+<article class="post-section">
+<div class="post-header{{#if feature_image}} is-image{{/if}}">
+	{{#if feature_image}}
+	<div class="post-image global-image">
+		{{>images/post_feature_img}}
+	</div>
+	{{/if}}
+	<div class="post-title-wrap{{#if feature_image}} is-image{{/if}}">
+		<div class="post-title-content">
+			{{#if tags}}
+			<div class="post-tags global-tags">{{tags separator=""}}</div>
+			{{/if}}
+			<h1 class="post-title global-title">{{title}}</h1>
+			<div class="global-meta">
+				<time datetime="{{date format="YYYY-MM-DD"}}"> {{date published_at timeago="true"}}</time>
+				{{t "by"}}
+				{{#has author="count:1"}}
+				{{#primary_author}}
+				<a href="{{url}}">{{name}}</a>
+				{{/primary_author}}
+				{{else}}
+				{{#has author="count:2"}}
+				{{#if authors}}
+				{{#foreach authors}}
+				<a href="{{url}}">{{name}}</a>
+				{{#if @first}}{{t "&"}}{{/if}}
+				{{/foreach}}
+				{{/if}}
+				{{else}}
+				{{#has author="count:3"}}
+				{{#if authors}}
+				{{#foreach authors}}
+				<a href="{{url}}">{{name}}</a>{{#if @first}},{{/if}}
+				{{#has number="2"}}
+				{{t "and"}}
+				{{/has}}
+				{{/foreach}}
+				{{/if}}
+				{{else}}
+				{{#has author="count:>3"}}
+				{{^is "post"}}
+				{{#primary_author}}
+				<a href="{{url}}">{{name}}</a>
+				{{/primary_author}}
+				{{t "and others"}}
+				{{else}}
+				{{authors}}
+				{{/is}}
+				{{/has}}
+				{{/has}}
+				{{/has}}
+				{{/has}}
+				&#8226; {{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}
+			</div>
+			{{#if custom_excerpt}}
+			<p class="post-excerpt">
+				{{{custom_excerpt}}}
+			</p>
+			{{/if}}
+		</div>
+	</div>
+</div>
+<div class="post-content{{#if @labs.members}}{{^if access}} global-no-access{{/if}}{{/if}}">
+	{{#if @labs.members}}
+	{{#if access}}
+	{{content}}
+	{{>post_share}}
+	{{else}}
+	{{>members/cta}}
+	{{/if}}
+	{{else}}
+	{{content}}
+	{{>post_share}}
+	{{/if}}
+</div>
+</article>
+{{#if @labs.members}}
+{{#if access}}
+{{>post_related}}
+{{>post_nextprev}}
+<div class="comments-section">
+	<div class="comments-wrap">
+		{{>services/disqus}}
+	</div>
+</div>
+{{else}}
+{{>post_public}}
+{{>post_nextprev}}
+{{/if}}
+{{else}}
+{{>post_related}}
+{{>post_nextprev}}
+<div class="comments-section">
+	<div class="comments-wrap">
+		{{>services/disqus}}
+	</div>
+</div>
+{{/if}}
+{{/post}}

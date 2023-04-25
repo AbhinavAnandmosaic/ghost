@@ -1,0 +1,56 @@
+<div class="special-section-content">
+	{{#foreach posts visibility="all"}}
+	<article class="special-item loop-item{{#if feature_image}} is-image{{/if}}">
+		<div class="special-item-wrap loop-item-wrap">
+			<div class="loop-item-elements">
+				<a href="{{url}}" class="global-link" aria-label="{{title}}"></a>
+				{{#if feature_image}}
+				<div class="special-item-image loop-item-image global-image">
+					{{>images/loop_feature_img}}
+				</div>
+				{{/if}}
+				<div class="special-item-content loop-item-content">
+					{{>members/visibility_label}}
+					<div class="special-item-meta loop-item-meta global-meta">
+						{{#has author="count:1"}}
+						{{#primary_author}}
+						<a href="{{url}}">{{name}}</a>
+						{{/primary_author}}
+						{{else}}
+						{{#has author="count:2"}}
+						{{#if authors}}
+						{{#foreach authors}}
+						<a href="{{url}}">{{name}}</a>
+						{{#if @first}}
+						{{t "&"}}
+						{{/if}}
+						{{/foreach}}
+						{{/if}}
+						{{else}}
+						{{#has author="count:>2"}}
+						{{#primary_author}}
+						<a href="{{url}}">{{name}}</a>
+						{{t "and others"}}
+						{{/primary_author}}
+						{{/has}}
+						{{/has}}
+						{{/has}}
+					</div>
+					<h2 class="special-item-title loop-item-title global-title">
+					<a href="{{url}}" class="global-underline">{{title}}</a>
+					</h2>
+					{{^if feature_image}}
+					<p class="special-item-excerpt loop-item-excerpt">
+						{{#if custom_excerpt}}
+						{{{custom_excerpt}}}
+						{{else}}
+						{{excerpt characters="130"}}...
+						{{/if}}
+					</p>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</article>
+	{{/foreach}}
+</div>

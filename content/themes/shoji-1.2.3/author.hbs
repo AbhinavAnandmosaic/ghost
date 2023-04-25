@@ -1,0 +1,50 @@
+{{!< default}}
+{{#author}}
+<div class="archive-section">
+	<div class="archive-wrap{{#if cover_image}} is-cover{{/if}}">
+		<div class="archive-container">
+			{{#if profile_image}}
+			<div class="archive-image global-image">
+				{{>images/author_profile_img}}
+			</div>
+			{{/if}}
+			<div class="archive-title">
+				<div>
+					<h1 class="global-title">{{name}}</h1>
+					<div class="archive-location">
+						{{#if location}}
+						<span>{{t "from"}} {{location}}</span>
+						{{/if}}
+					</div>
+					{{#if bio}}
+					<p class="archive-description">{{bio}}</p>
+					{{/if}}
+				</div>
+			</div>
+			<div class="archive-meta">
+				<div class="archive-counter">
+					<span>{{../pagination.total}}</span>
+				</div>
+				<div class="archive-icons">
+					{{#if website}}
+					<a href="{{website}}" aria-label="link Website">{{>icons/site/link}}</a>
+					{{/if}}
+					{{#if facebook}}
+					<a href="{{facebook_url}}" aria-label="link Facebook">{{>icons/social/facebook}}</a>
+					{{/if}}
+					{{#if twitter}}
+					<a href="{{twitter_url}}" aria-label="link Twitter">{{>icons/social/twitter}}</a>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{#if cover_image}}
+	<div class="archive-cover global-image">
+		{{>images/author_cover_img}}
+	</div>
+	{{/if}}
+</div>
+{{/author}}
+{{>loop}}
+{{pagination}}

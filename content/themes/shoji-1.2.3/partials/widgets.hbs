@@ -1,0 +1,63 @@
+{{^is "post,page"}}
+<div id="widgets" class="widget-section">
+	<div class="widget-wrap">
+		<div class="widget-authors">
+			<div class="global-heading">
+				<h3>{{t "Meet our top authors"}}</h3>
+
+
+				{{!-- Remove brackets "{{!‐‐" and "‐‐}}" to use authors page link --}}
+				{{!-- Probably you need to change /authors/ slug - which should be replaced with your own link to authors page --}}
+		
+				{{!--
+				<a href="{{@site.url}}/authors/">{{t "See all authors"}}{{>icons/site/arrow_right}}</a>
+				--}}
+
+
+			</div>
+			{{#get "authors" limit="4" include="count.posts" order="count.posts desc"}}
+			<div class="widget-content authors">
+				{{#foreach authors}}
+				<a href="{{url}}">
+					{{#if profile_image}}
+					<div class="author-image global-image">
+						{{>images/author_profile_img}}
+					</div>
+					{{else}}
+					{{#if cover_image}}
+					<div class="author-image global-image">
+						{{>images/author_cover_img}}
+					</div>
+					{{/if}}
+					{{/if}}
+					<h5 class="author-name">{{name}}</h5>
+				</a>
+				{{/foreach}}
+			</div>
+			{{/get}}
+		</div>
+		<div id="widget-tags" class="widget-tags">
+			<div class="global-heading">
+				<h3>{{t "Explore our top tags"}}</h3>
+
+
+				{{!-- Remove brackets "{{!‐‐" and "‐‐}}" to use tags page link --}}
+				{{!-- Probably you need to change /tags/ slug - which should be replaced with your own link to tags page --}}
+		
+				{{!--
+				<a href="{{@site.url}}/tags/">{{t "See all tags"}}{{>icons/site/arrow_right}}</a>
+				--}}
+
+
+			</div>
+			{{#get "tags" limit="20" filter="visibility:public" include="count.posts" order="count.posts desc" as |tags_widget|}}
+			{{#if tags_widget}}
+			<div id="widget-content" class="widget-content global-tags tags">
+				{{tags separator=""}}
+			</div>
+			{{/if}}
+			{{/get}}
+		</div>
+	</div>
+</div>
+{{/is}}

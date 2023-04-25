@@ -1,0 +1,10 @@
+{{#get "posts" limit="5" filter="visibility:public" include="authors" as |public_posts|}}
+{{#if public_posts}}
+<div class="post-related-section special-section">
+	<div class="global-heading">
+		<h3>{{t "See our public posts"}}</h3>
+	</div>
+	{{>sections_content}}
+</div>
+{{/if}}
+{{/get}}

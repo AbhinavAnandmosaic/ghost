@@ -1,0 +1,76 @@
+<header class="post-header u-container u-maxWidth740 u-paddingTop30 u-relative zindex3">
+    {{!-- Article Title --}}
+    <h1 class="post-title u-marginBottom20 u-fontSizeLargest u-md-fontSize36">{{title}}</h1>
+
+    <!-- breadcumbs -->
+    {{^is "home"}}
+        <nav class="breadcrumb">
+        <ol class="breadcrumb">
+            {{!-- <li class="breadcrumb-item"><a href="{{@site.url}}">Home</a></li> --}}
+            <li class="breadcrumb-item"><a href="https://manmatters.com/" target="_blank">Man Matters</a></li>
+            <li class="breadcrumb-item"><a href="https://manmatters.com/blog/">Blog</a></li>
+            {{#is "page"}}
+                <li class="breadcrumb-item">{{post.title}}</li>
+            {{/is}}
+            {{#is "author"}}
+                <li class="breadcrumb-item"><a href="{{@site.url}}/about/">about</a></li>
+                <li class="breadcrumb-item">{{primary_author.name}}</li>
+            {{/is}}
+            {{#is "tag"}}
+                <li class="breadcrumb-item">{{tag.name}}</li>
+            {{/is}}
+            {{!-- {{#is "post"}}{{#post}}{{#primary_tag}}
+                <li class="breadcrumb-item"><a href="{{url absolute="yes"}}">{{name}}</a></li>
+                {{/primary_tag}}
+                <li class="breadcrumb-item">{{title}}</li>
+            {{/post}}{{/is}} --}}
+
+            {{#is "post"}}
+                <li class="breadcrumb-item">{{title}}</li>
+            {{/is}}
+            
+        </ol>
+        </nav>
+
+    {{/is}}
+    <!-- breadcumbs ends-->
+
+    {{!-- Article Excerpt  --}}
+    {{#if custom_excerpt}}<p class="post-excerpt u-marginBottom30 u-fontSize22 u-textMuted">{{custom_excerpt}}</p>{{/if}}
+
+    <hr>
+
+    <div class="u-flex post-share">
+        {{!-- Meta - partials/helper/helper-meta.hbs --}}
+        {{> "helper/helper-author-meta"}}
+
+        {{!-- Share --}}
+        <aside class="post-shasre u-flex0 u-flexCenter u-hide-before-md">
+            <span class="share-label u-textMuted u-fontSizeSmaller">{{t "Share"}}:</span>
+            {{!-- Share on Twitter --}}
+            <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="{{t "Share on"}} Twitter"
+                class="share-link button button--circle godo-tracking js-share">
+                <svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
+            </a>
+            {{!-- Share on Linkeding --}}
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="{{t "Share on"}} Linkedin"
+                class="share-link button button--circle godo-tracking js-share">
+                <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+            </a>
+            {{!-- Share on Facebook --}}
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="{{t "Share on"}} Facebook"
+                class="share-link button button--circle godo-tracking js-share">
+                <svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
+            </a>
+        </aside>
+    </div>
+</header>

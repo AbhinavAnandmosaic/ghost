@@ -1,0 +1,63 @@
+{{!< default}}
+{{#get "authors" limit="all" include="count.posts" order="count.posts desc" as |authors_top|}}
+{{#if authors_top}}
+<div class="loop-wrap">
+	{{#foreach authors to="4"}}
+	<div class="custom-element top loop-item global-box-shadow{{#if profile_image}} is-image{{else}}{{#if cover_image}} is-image{{/if}}{{/if}}">
+		<div class="loop-item-wrap">
+			<div class="loop-item-elements">
+				<a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
+				{{#if profile_image}}
+				<div class="loop-item-image global-image">
+					{{>images/author_profile_img}}
+				</div>
+				{{else}}
+				{{#if cover_image}}
+				<div class="loop-item-image global-image">
+					{{>images/author_cover_img}}
+				</div>
+				{{/if}}
+				{{/if}}
+			</div>
+			<div class="custom-element-content top loop-item-content">
+				<div class="custom-element-title-wrap">
+					<h2 class="loop-item-title global-title">
+					<a href="{{url}}" class="global-underline">{{name}}</a>
+					</h2>
+					<div class="custom-element-meta loop-item-meta global-meta">
+						{{#if location}}
+						<span>{{t "from"}} {{location}}</span>
+						{{/if}}
+					</div>
+				</div>
+				<div class="custom-element-counter top">
+					<span>{{count.posts}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/foreach}}
+</div>
+{{/if}}
+{{#foreach authors from="5"}}
+{{#if @first}}
+<div class="global-heading">
+	<h3>{{t "You might also like"}}</h3>
+</div>
+<div class="special-section">
+	<div class="special-section-content">
+		{{/if}}
+		<a href="{{url}}" class="custom-element bottom">
+			<div class="custom-element-content bottom">
+				<h2>{{name}}</h2>
+				<div class="custom-element-counter bottom">
+					<span>{{count.posts}}</span>
+				</div>
+			</div>
+		</a>
+		{{#if @last}}
+	</div>
+</div>
+{{/if}}
+{{/foreach}}
+{{/get}}

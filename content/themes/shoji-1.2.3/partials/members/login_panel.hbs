@@ -1,0 +1,9 @@
+{{#if @labs.members}}
+{{#if @member}}
+<li><a class="account global-hover" href="{{@site.url}}/account/">{{t "Account"}}</a></li>
+<li><a class="signout global-hover" href="#" data-members-signout>{{t "Sign out"}}</a></li>
+{{else}}
+<li><a class="signin global-hover" href="{{@site.url}}/signin/">{{t "Sign in"}}</a></li>
+<li><a class="signup global-hover" href="{{@site.url}}/signup/">{{t "Sign up"}}</a></li>
+{{/if}}
+{{/if}}

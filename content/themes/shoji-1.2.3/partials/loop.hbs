@@ -1,0 +1,71 @@
+<div class="loop-section">
+	<div class="loop-wrap">
+		{{#foreach posts visibility="all"}}
+		<article class="loop-item global-box-shadow{{#if @first}} is-first{{/if}}{{#if @last}} is-last{{/if}}{{#if feature_image}} is-image{{/if}}">
+			<div class="loop-item-wrap">
+				<div class="loop-item-elements">
+					<a href="{{url}}" class="global-link" aria-label="{{title}}"></a>
+					{{#if feature_image}}
+					<div class="loop-item-image global-image">
+						{{>images/loop_feature_img}}
+					</div>
+					{{/if}}
+					<div class="loop-item-content">
+						{{>members/visibility_label}}
+						<h2 class="loop-item-title global-title">
+						<a href="{{url}}" class="global-underline">{{title}}</a>
+						</h2>
+						<div class="loop-item-meta global-meta">
+							{{#has author="count:1"}}
+							{{#primary_author}}
+							<a href="{{url}}">{{name}}</a>
+							{{/primary_author}}
+							{{else}}
+							{{#has author="count:2"}}
+							{{#if authors}}
+							{{#foreach authors}}
+							<a href="{{url}}">{{name}}</a>
+							{{#if @first}}
+							{{t "&"}}
+							{{/if}}
+							{{/foreach}}
+							{{/if}}
+							{{else}}
+							{{#has author="count:>2"}}
+							{{#primary_author}}
+							<a href="{{url}}">{{name}}</a>
+							{{t "and others"}}
+							{{/primary_author}}
+							{{/has}}
+							{{/has}}
+							{{/has}}
+						</div>
+						<p class="loop-item-excerpt">
+							{{#if custom_excerpt}}
+							{{{custom_excerpt}}}
+							{{else}}
+							{{#if feature_image}}
+							{{#if @first}}
+							{{excerpt words="35"}}...
+							{{else}}
+							{{excerpt words="15"}}...
+							{{/if}}
+							{{else}}
+							{{excerpt words="55"}}...
+							{{/if}}
+							{{/if}}
+						</p>
+					</div>
+				</div>
+				{{#if primary_tag}}
+				<div class="loop-item-tags global-tags">
+					{{#primary_tag}}
+					<a href="{{url}}">{{name}}</a>
+					{{/primary_tag}}
+				</div>
+				{{/if}}
+			</div>
+		</article>
+		{{/foreach}}
+	</div>
+</div>

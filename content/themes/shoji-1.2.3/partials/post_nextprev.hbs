@@ -1,0 +1,34 @@
+<aside class="nextprev-section">
+	<div class="nextprev-wrap">
+		{{#next_post}}
+		<div class="nextprev-newer global-box-shadow">
+			<div>
+				{{#if feature_image}}
+				<a href="{{url}}" class="nextprev-image global-image">
+					{{>images/post_nextprev_feature_img}}
+				</a>
+				{{/if}}
+				<section>
+					<small>{{t "Newer post"}}</small>
+					<h3 class="nextprev-title"><a href="{{url}}" class="global-underline">{{title}}</a></h3>
+				</section>
+			</div>
+		</div>
+		{{/next_post}}
+		{{#prev_post}}
+		<div class="nextprev-older global-box-shadow">
+			<div>
+				<section>
+					<small>{{t "Older post"}}</small>
+					<h3 class="nextprev-title"><a href="{{url}}" class="global-underline">{{title}}</a></h3>
+				</section>
+				{{#if feature_image}}
+				<a href="{{url}}" class="nextprev-image global-image">
+					{{>images/post_nextprev_feature_img}}
+				</a>
+				{{/if}}
+			</div>
+		</div>
+		{{/prev_post}}
+	</div>
+</aside>

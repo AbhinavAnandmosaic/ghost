@@ -1,0 +1,29 @@
+{{!< default}}
+{{#tag}}
+<div class="archive-section">
+	<div class="archive-wrap archive-alternate{{#if feature_image}} is-cover{{/if}}">
+		<div class="archive-container">
+			<div class="archive-title">
+				<div>
+					<h1 class="global-title">{{name}}</h1>
+					{{#if description}}
+					<p class="archive-description">{{description}}</p>
+					{{/if}}
+				</div>
+			</div>
+			<div class="archive-meta">
+				<div class="archive-counter">
+					<span>{{../pagination.total}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{#if feature_image}}
+	<div class="archive-cover global-image">
+		{{>images/tag_feature_img}}
+	</div>
+	{{/if}}
+</div>
+{{/tag}}
+{{>loop}}
+{{pagination}}

@@ -1,0 +1,11 @@
+<div class="js-social-media social-media u-flex">
+    {{#if @site.facebook}}<a class="godo-tracking" data-event-category="Header" data-event-action="Social" data-event-label="Facebook" data-event-non-interaction="true" title="Facebook {{@site.facebook}}" aria-label="Facebook {{@site.facebook}}" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer">
+        <svg class="icon icon--facebook"><use xlink:href="#icon-facebook"></use></svg>
+    </a>{{/if}}
+    {{#if @site.twitter}}<a class="godo-tracking" data-event-category="Header" data-event-action="Social" data-event-label="Twitter" data-event-non-interaction="true" title="Twitter {{@site.twitter}}" aria-label="Twitter {{@site.twitter}}" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer">
+        <svg class="icon icon--twitter"><use xlink:href="#icon-twitter"></use></svg>
+    </a>{{/if}}
+    {{!-- <a class="godo-tracking whatsapp-link" data-event-category="Header" data-event-action="Social" data-event-label="Whatsapp" data-event-non-interaction="true" title="Whatsapp" aria-label="Whatsapp" href="https://wa.me/+919987809044?text=Hey%2C+I+was+on+the+Man+Matters+Blog+and+I+wanted+to+learn+more+about+Man+Matters%21" target="_blank" rel="noopener noreferrer">
+        <svg class="icon icon--whatsapp"><use xlink:href="#icon-whatsapp"></use></svg>
+    </a> --}}
+</div>

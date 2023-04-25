@@ -1,0 +1,213 @@
+<style>
+    .mm_menu_li{cursor:pointer}
+    .mm_menu_li .mm_submenu{display:none;position:absolute;width:200px;padding-top:18px}
+    .mm_menu_li:hover .mm_submenu{display:block}
+    .mm_menu_li .mm_submenu li{border-bottom:1px solid #fff;background:#272525}
+    .mm_menu_li .mm_submenu li:last-child{border:0}
+    .mm_menu_li .mm_submenu li a{color:#fff;font-weight:400;padding:10px 20px;display:block}
+    .icon-arrow{width:14px}
+    .d-none{display:none}
+    .mm_search_mobile{width:auto}
+    @media screen and (max-width: 767px){
+        .icon-arrow{transition:all .5s ease-in-out}
+        .mm_menu_li.active .icon-arrow{transform:rotate(180deg);transition:all .5s ease-in-out}
+        .mm_menu_li .mm_submenu{width:100%;position:relative;}
+        .mm_menu_li:hover .mm_submenu{display:none}
+        .mm_menu_li.active .mm_submenu{display:block}
+        .mm_menu_li .mm_submenu{padding-top:0;padding-left: 50px;}
+        .mm_menu_li .mm_submenu li{background: transparent;list-style:square;border:none}
+        .mm_menu_li .mm_submenu li a{font-size:14px; color:inherit;padding:5px 10px}
+    }
+</style>
+<style>@media screen and (max-width:767px){.sub_tags{display: flex;overflow-x: scroll;margin: 0 8px;}}.sub_tags{margin-bottom: 20px}</style>
+<header class="header u-sizeFullWidth u-fontSizeSmaller u-bgheader u-flexCenter">
+    <div class="header-wrap u-flexCenter container u-flex1">
+        {{!-- Logo --}}
+        <div class="header-left u-flex0">
+            {{!-- <a href="{{@site.url}}" --}}
+            <a href="https://manmatters.com/" target="_blank"
+                class="header-logo u-block u-lineHeight1 godo-tracking"
+                data-event-category="Header"
+                data-event-action="Logo"
+                data-event-label="Click"
+                data-event-non-interaction="true">
+                {{#if @site.logo}}
+                    <img src="{{img_url @site.logo size="m"}}" alt="{{@site.title}}"/>
+                {{else}}
+                    <span class="u-fontSize28 u-fontWeightBold">{{@site.title}}</span>
+                {{/if}}
+            </a>
+        </div>
+
+        {{!-- Navigation --}}
+        <nav style="overflow:visible!important" class="header-center u-relative mainMenu u-overflowHidden u-flex u-flex1 u-paddingRight20 u-flexCenter u-hide-before-lg u-menu-color">
+            {{navigation}}
+            <ul class="nav" role="menu">
+                <li role="menuitem" class="mm_menu_li">
+                    <a>Categories <img src="https://img.icons8.com/ios-glyphs/24/000000/chevron-down.png"/ class="icon-arrow"></a>
+                    <ul class="mm_submenu">
+                        <li><a href="/blog/360-health/" title="360-health">360 Health</a></li>
+                        <li><a href="/blog/ayurveda/" title="Ayurveda">Ayurveda</a></li>
+                        <li><a href="/blog/benefits/" title="Benefits">Benefits</a></li>
+                        <li><a href="/blog/diets/" title="Diets">Diets</a></li>
+                        <li><a href="/blog/hair/" title="Hair">Hair</a></li>
+                        <li><a href="/blog/home-remedies/" title="Home Remedies">Home Remedies</a></li>
+                        <li><a href="/blog/sexual-health/" title="Sexual Health">Sexual Health</a></li>
+                        <li><a href="/blog/skin/" title="Skin">Skin</a></li>
+                        <li><a href="/blog/sleep/" title="Sleep">Sleep</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+        {{!-- <a class="godo-tracking search-for-desktop mm_search_desktop" data-event-category="Header" data-event-action="search" data-event-label="search" data-event-non-interaction="true" title="search" aria-label="search" rel="noopener noreferrer">
+            <svg class="icon icon--search"><use xlink:href="#icon-search"></use></svg>
+        </a> --}}
+
+        <div id="desktop_search"></div>
+
+        <div class="header-right u-flex0 u-flex u-flexEnd u-menu-color">
+            {{^is "index, home, tag"}}
+                {{#if @site.members_enabled}}
+                <div class="button button--success js-m-subscribe-toggle u-hide-before-md">{{t "Subscribe"}} </div>
+                {{/if}}
+            {{else}}
+            {{/is}}
+                {{!-- Social Media - partilas/widget/social-media.hbs --}}
+                {{> "widget/social-media"}}
+            {{!-- {{/is}} --}}
+
+            <div class="header-action u-flexCenter">
+                {{!-- search logo for mobile --}}
+                {{!-- <a class="godo-tracking search-for-mobile mm_search_mobile" data-event-category="Header" data-event-action="search" data-event-label="search" data-event-non-interaction="true" title="search" aria-label="search" rel="noopener noreferrer">
+                    <svg class="icon icon--search"><use xlink:href="#icon-search"></use></svg>
+                </a> --}}
+
+                {{!-- whatsapp logo for mobile --}}
+                {{!-- <a class="godo-tracking for-mobile whatsapp-link" data-event-category="Header" data-event-action="Social" data-event-label="Whatsapp" data-event-non-interaction="true" title="Whatsapp" aria-label="Whatsapp" href="https://wa.me/+919987809044?text=Hey%2C+I+was+on+the+Man+Matters+Blog+and+I+wanted+to+learn+more+about+Man+Matters%21" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon icon--whatsapp"><use xlink:href="#icon-whatsapp"></use></svg>
+                </a> --}}
+                {{!-- Light and Dark Mode --}}
+                <a href="javascript:;" class="js-dark-mode hla header-dark-mode" aria-label="Dark and Light Mode" >
+                    <svg class="icon icon--moon"><use xlink:href="#icon-moon"></use></svg>
+                    <svg class="icon icon--sunny u-hide"><use xlink:href="#icon-sunny"></use></svg>
+                </a>
+
+                {{!-- Toggle Searcg --}}
+                <a href="javascript:;"
+                    aria-label="Toggle Search"
+                    class="js-search-open nav-search godo-tracking u-pointer u-hide"
+                    data-event-category="Header"
+                    data-event-action="Search"
+                    data-event-label="Click"
+                    data-event-non-interaction="true">
+                    <svg class="icon icon--search"><use xlink:href="#icon-search"></use></svg>
+                </a>
+
+                {{!-- Toggle Menu --}}
+                <div class="js-menu-toggle menu-burger u-relative u-hide-after-lg u-pointer"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="mobile_search"></div>
+
+{{!-- Menu Mobile --}}
+{{>"sidenav"}}
+
+
+<script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--
+<script type="text/javascript">
+  window.addEventListener('DOMContentLoaded', function() {
+		$(".mm_menu_li").click(function(){
+			$(this).toggleClass('active');
+		});
+
+        $('.mm_search_desktop').click(function(){
+            // $('.search-for-desktop').show();
+            $(this).hide();
+            $('#desktop_search').html('<script async src="https://cse.google.com/cse.js?cx=66322230eef0eabed"><'+'/script><div class="gse-searchbox search-for-desktop"><div class="gcse-search"></div></div>');
+        });
+
+        $('.mm_search_mobile').click(function(){
+            // $('.search-for-mobile').show();
+            $("html, body").animate({ scrollTop: "0" }, 500);
+            $('#mobile_search').html('<script async src="https://cse.google.com/cse.js?cx=66322230eef0eabed"><'+'/script><div class="gse-searchbox search-for-mobile"><div class="gcse-search"></div></div>');
+        });
+
+	})
+</script>
+-->
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var pathname = window.location.pathname;
+        var pathArray = pathname.split('/');
+        var url_last = pathArray[pathArray.length-2];
+        var cat = '';
+        var tags = '';
+
+        var health_360 = {"360-health":"360-health", "sex":"Sex", "erectile-dysfunction":"Erectile Dysfunction", "masturbation":"Masturbation", "testosterone":"Testosterone", "nightfall":"Nightfall", "gym":"Gym", "weight-loss":"Weight Loss", "diet":"Diet", "hygiene":"Hygiene", "diseases":"Diseases", "sleep":"Sleep", "yoga":"Yoga", "mental-health":"Mental Health", "lifestyle":"Lifestyle"}
+        jQuery.each( health_360, function(link, title) {
+            if(url_last==link){
+                cat = '360-health';
+                tags = health_360;
+            }
+        });
+
+        var skin = {"skin":"Skin", "skin-types":"Skin Types", "skin-conditions":"Skin Conditions", "skin-care-routine":"Skin Care Routine", "ingredients": "Ingredients", "foods-for-skin":"Foods for Skin", "face-packs":"Face Packs", "skin-care-tips":"Skin Care Tips", "bath-products":"Bath Products"}
+        jQuery.each( skin, function(link, title) {
+            if(url_last==link){
+                cat = 'skin';
+                tags = skin;
+            }
+        });
+
+        var hair = {"hair":"Hair", "hair-regrowth":"Hair Regrowth", "hair-loss":"Hair Loss", "dandruff":"Dandruff", "hair-care":"Hair Care", "hair-masks": "Hair Masks", "grey-hair":"Grey Hair", "beard":"Beard", "hair-removal":"Hair Removal"}
+        jQuery.each( hair, function(link, title) {
+            if(url_last==link){
+                cat = 'hair';
+                tags = hair;
+            }
+        });
+
+        var ayurveda = {"ayurveda":"Ayurveda", "ayurvedic-herbs":"Ayurvedic Herbs", "ayurvedic-oils":"Ayurvedic Oils", "ayurvedic-treatment":"Ayurvedic Treatment"}
+        jQuery.each( ayurveda, function(link, title) {
+            if(url_last==link){
+                cat = 'ayurveda';
+                tags = ayurveda;
+            }
+        });
+
+        var home_remedies = {"home-remedies":"Home Remedies", "all-remedies":"All Remedies", "dandruff-remedies":"Dandruff Remedies", "clear-skin-remedies":"Clear Skin Remedies", "weight-loss-remedies":"Weight Loss Remedies", "hair-remedies":"Hair Remedies"}
+        jQuery.each( home_remedies, function(link, title) {
+            if(url_last==link){
+                cat = 'home-remedies';
+                tags = home_remedies;
+            }
+        });
+
+        var diets = {"diets":"Diets", "hair-diets":"Hair Diets", "weight-loss-diets":"Weight loss Diets", "clear-skin-diets":"Clear skin diets", "increase-libido-diets":"Increase Libido Diets", "gym-diets":"Gym Diets"}
+        jQuery.each( diets, function(link, title) {
+            if(url_last==link){
+                cat = 'diets';
+                tags = diets;
+            }
+        });
+
+        jQuery.each( tags, function( link, title ) {
+            $( ".sub_tags" )
+            .append( '<a href="/blog/'+cat+'/'+link+'" title="'+title+'" id="'+link+'" class="u-textCapitalize button button--outline-success">'+title+'</a>' );
+            if(link == url_last){
+                $("#"+link).css({"background-color":"#28a745", "border-color":"#28a745", "color":"#fff"});
+                // $(".sub_tags").scrollTo("#"+link);
+                $('.sub_tags').animate({
+                    scrollLeft: $("#"+link).offset().left
+                }, 200);
+            }
+        });
+    });
+</script>

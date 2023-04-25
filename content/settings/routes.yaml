@@ -1,0 +1,305 @@
+routes:
+
+  /360-health/:
+    controller: channel
+    filter: tag:360-health
+    template: index
+
+  /360-health/360-health/:
+    controller: channel
+    filter: tag:360-health
+    template: index
+
+  /360-health/sex/:
+    controller: channel
+    filter: tag:360-health+tag:sex
+    template: index
+
+  /360-health/erectile-dysfunction/:
+    controller: channel
+    filter: tag:360-health+tag:erectile-dysfunction
+    template: index
+
+  /360-health/masturbation/:
+    controller: channel
+    filter: tag:360-health+tag:masturbation
+    template: index
+
+  /360-health/testosterone/:
+    controller: channel
+    filter: tag:360-health+tag:testosterone
+    template: index
+
+  /360-health/nightfall/:
+    controller: channel
+    filter: tag:360-health+tag:nightfall
+    template: index
+
+  /360-health/gym/:
+    controller: channel
+    filter: tag:360-health+tag:gym
+    template: index
+
+  /360-health/weight-loss/:
+    controller: channel
+    filter: tag:360-health+tag:weight-loss
+    template: index
+
+  /360-health/diet/:
+    controller: channel
+    filter: tag:360-health+tag:diet
+    template: index
+
+  /360-health/hygiene/:
+    controller: channel
+    filter: tag:360-health+tag:hygiene
+    template: index
+
+  /360-health/diseases/:
+    controller: channel
+    filter: tag:360-health+tag:diseases
+    template: index
+
+  /360-health/sleep/:
+    controller: channel
+    filter: tag:360-health+tag:sleep
+    template: index
+
+  /360-health/yoga/:
+    controller: channel
+    filter: tag:360-health+tag:yoga
+    template: index
+
+  /360-health/mental-health/:
+    controller: channel
+    filter: tag:360-health+tag:mental-health
+    template: index
+
+  /360-health/lifestyle/:
+    controller: channel
+    filter: tag:360-health+tag:lifestyle
+    template: index
+
+  /skin/:
+    controller: channel
+    filter: tag:skin
+    template: index
+
+  /skin/skin/:
+    controller: channel
+    filter: tag:skin
+    template: index
+
+  /skin/skin-types/:
+    controller: channel
+    filter: tag:skin+tag:skin-types
+    template: index
+
+  /skin/skin-conditions/:
+    controller: channel
+    filter: tag:skin+tag:skin-conditions
+    template: index
+  
+  /skin/skin-care-routine/:
+    controller: channel
+    filter: tag:skin+tag:skin-care-routine
+    template: index
+  
+  /skin/ingredients/:
+    controller: channel
+    filter: tag:skin+tag:ingredients
+    template: index
+  
+  /skin/foods-for-skin/:
+    controller: channel
+    filter: tag:skin+tag:foods-for-skin
+    template: index
+
+  /skin/face-packs/:
+    controller: channel
+    filter: tag:skin+tag:face-packs
+    template: index
+
+  /skin/skin-care-tips/:
+    controller: channel
+    filter: tag:skin+tag:skin-care-tips
+    template: index
+
+  /skin/bath-products/:
+    controller: channel
+    filter: tag:skin+tag:bath-products
+    template: index
+
+  /hair/:
+    controller: channel
+    filter: tag:hair
+    template: index
+
+  /hair/hair/:
+    controller: channel
+    filter: tag:hair
+    template: index
+
+  /hair/hair-regrowth/:
+    controller: channel
+    filter: tag:hair+tag:hair-regrowth
+    template: index
+
+  /hair/hair-loss/:
+    controller: channel
+    filter: tag:hair+tag:hair-loss
+    template: index
+
+  /hair/dandruff/:
+    controller: channel
+    filter: tag:hair+tag:dandruff
+    template: index
+
+  /hair/hair-care/:
+    controller: channel
+    filter: tag:hair+tag:hair-care
+    template: index
+
+  /hair/hair-masks/:
+    controller: channel
+    filter: tag:hair+tag:hair-masks
+    template: index
+
+  /hair/grey-hair/:
+    controller: channel
+    filter: tag:hair+tag:grey-hair
+    template: index
+
+  /hair/beard/:
+    controller: channel
+    filter: tag:hair+tag:beard
+    template: index
+
+  /hair/hair-removal/:
+    controller: channel
+    filter: tag:hair+tag:hair-removal
+    template: index
+
+  /ayurveda/:
+    controller: channel
+    filter: tag:ayurveda
+    template: index
+
+  /ayurveda/ayurveda/:
+    controller: channel
+    filter: tag:ayurveda
+    template: index
+  
+  /ayurveda/ayurvedic-herbs/:
+    controller: channel
+    filter: tag:ayurveda+tag:ayurvedic-herbs
+    template: index
+
+  /ayurveda/ayurvedic-oils/:
+    controller: channel
+    filter: tag:ayurveda+tag:ayurvedic-oils
+    template: index
+
+  /ayurveda/yoga/:
+    controller: channel
+    filter: tag:ayurveda+tag:yoga
+    template: index
+
+  /ayurveda/ayurvedic-treatment/:
+    controller: channel
+    filter: tag:ayurveda+tag:ayurvedic-treatment
+    template: index
+
+  /home-remedies/:
+    controller: channel
+    filter: tag:home-remedies
+    template: index
+
+  /home-remedies/home-remedies/:
+    controller: channel
+    filter: tag:home-remedies
+    template: index
+
+  /home-remedies/all-remedies/:
+    controller: channel
+    filter: tag:home-remedies+tag:all-remedies
+    template: index
+
+  /home-remedies/dandruff-remedies/:
+    controller: channel
+    filter: tag:home-remedies+tag:dandruff-remedies
+    template: index
+
+  /home-remedies/clear-skin-remedies/:
+    controller: channel
+    filter: tag:home-remedies+tag:clear-skin-remedies
+    template: index
+
+  /home-remedies/weight-loss-remedies/:
+    controller: channel
+    filter: tag:home-remedies+tag:weight-loss-remedies
+    template: index
+
+  /home-remedies/hair-remedies/:
+    controller: channel
+    filter: tag:home-remedies+tag:hair-remedies 
+    template: index
+
+  /diets/:
+    controller: channel
+    filter: tag:diets
+    template: index
+
+  /diets/diets/:
+    controller: channel
+    filter: tag:diets
+    template: index
+
+  /diets/hair-diets/:
+    controller: channel
+    filter: tag:diets+tag:hair-diets
+    template: index
+
+  /diets/weight-loss-diets/:
+    controller: channel
+    filter: tag:diets+tag:weight-loss-diets
+    template: index
+
+  /diets/clear-skin-diets/:
+    controller: channel
+    filter: tag:diets+tag:clear-skin-diets
+    template: index
+
+  /diets/increase-libido-diets/:
+    controller: channel
+    filter: tag:diets+tag:increase-libido-diets
+    template: index
+
+  /diets/gym-diets/:
+    controller: channel
+    filter: tag:diets+tag:gym-diets
+    template: index
+
+  /benefits/:
+    controller: channel
+    filter: tag:benefits
+    template: index
+
+  /sexual-health/:
+    controller: channel
+    filter: tag:sexual-health
+    template: index
+
+  /sleep/:
+    controller: channel
+    filter: tag:sleep
+    template: index
+
+collections:
+  /:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

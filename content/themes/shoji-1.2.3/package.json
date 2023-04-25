@@ -1,0 +1,19 @@
+{
+    "name": "shoji",
+    "demo": "https://shoji.fueko.net",
+    "version": "1.2.3",
+    "engines": {
+        "ghost-api": "v3"
+    },
+    "author": {
+        "name": "fueko",
+        "email": "hello@fueko.net",
+        "url": "https://fueko.net"
+    },
+    "keywords": [
+        "ghost-theme"
+    ],
+    "config": {
+        "posts_per_page": 7
+    }
+}

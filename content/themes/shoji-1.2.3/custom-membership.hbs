@@ -1,0 +1,29 @@
+{{!< default}}
+{{#post}}
+<div class="archive-section">
+	<div class="archive-wrap archive-alternate{{#if feature_image}} is-cover{{/if}}">
+		<div class="archive-container">
+			<div class="archive-title">
+				<div>
+					<h1 class="global-title">{{title}}</h1>
+					<p class="archive-description">{{t "Unlock full access to {blog-title} and see the entire library of subscribers-only content & updates" blog-title=@site.title}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{#if feature_image}}
+	<div class="archive-cover global-image">
+		{{>images/custom_feature_img}}
+	</div>
+	{{/if}}
+</div>
+<div class="global-heading">
+	<h3>{{t "Choose your plan"}}</h3>
+</div>
+<div class="membership-cards">
+	{{>members/plan_free}}
+	{{>members/plan_monthly}}
+	{{>members/plan_yearly}}
+</div>
+<small class="global-question">{{t "Already have an account?"}} <a href="{{@site.url}}/signin/">{{t "Sign in"}}</a></small>
+{{/post}}

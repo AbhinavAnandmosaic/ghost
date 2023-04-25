@@ -1,0 +1,83 @@
+<div id="pinned" class="pinned-section">
+	<div class="pinned-wrap">
+		{{#get "pages" limit="2" filter="featured:true" as |pinned_pages|}}
+		{{#if pinned_pages}}
+		<div class="pinned-items{{#if @site.cover_image}} is-cover{{/if}}">
+			{{#foreach pages visibility="all"}}
+			<div class="pinned-item">
+				<a href="{{url}}" class="global-link" aria-label="pinned {{title}}"></a>
+				{{>members/visibility_label}}
+				{{#if feature_image}}
+				<div class="pinned-image global-image">
+					{{>images/loop_feature_img}}
+				</div>
+				{{/if}}
+				<div class="pinned-content">
+					<h3 class="pinned-title">{{title}}</h3>
+				</div>
+			</div>
+			{{/foreach}}
+		</div>
+		{{/if}}
+		{{/get}}
+		{{#get "posts" limit="4" filter="featured:true" include="authors" as |pinned_posts|}}
+		{{#if pinned_posts}}
+		<div class="pinned-items{{#if @site.cover_image}} is-cover{{/if}}">
+			{{#foreach posts visibility="all"}}
+			<div class="pinned-item">
+				<a href="{{url}}" class="global-link" aria-label="pinned {{title}}"></a>
+				{{>members/visibility_label}}
+				{{#if feature_image}}
+				<div class="pinned-image global-image">
+					{{>images/loop_feature_img}}
+				</div>
+				{{/if}}
+				<div class="pinned-content">
+					<div class="pinned-meta global-meta">
+						{{#has author="count:1"}}
+						{{#primary_author}}
+						<a href="{{url}}">{{name}}</a>
+						{{/primary_author}}
+						{{else}}
+						{{#has author="count:2"}}
+						{{#if authors}}
+						{{#foreach authors}}
+						<a href="{{url}}">{{name}}</a>
+						{{#if @first}}
+						{{t "&"}}
+						{{/if}}
+						{{/foreach}}
+						{{/if}}
+						{{else}}
+						{{#has author="count:>2"}}
+						{{#primary_author}}
+						<a href="{{url}}">{{name}}</a>
+						{{/primary_author}}
+						{{t "and others"}}
+						{{/has}}
+						{{/has}}
+						{{/has}}
+					</div>
+					<h3 class="pinned-title">{{title}}</h3>
+					{{^if feature_image}}
+					<p class="pinned-item-excerpt">
+						{{#if custom_excerpt}}
+						{{{custom_excerpt}}}
+						{{else}}
+						{{excerpt words="25"}}...
+						{{/if}}
+					</p>
+					{{/if}}
+				</div>
+			</div>
+			{{/foreach}}
+		</div>
+		{{/if}}
+		{{/get}}
+	</div>
+	{{#if @site.cover_image}}
+	<div class="pinned-cover global-image">
+		{{>images/site_cover_img}}
+	</div>
+	{{/if}}
+</div>

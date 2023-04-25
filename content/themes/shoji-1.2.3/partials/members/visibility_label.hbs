@@ -1,0 +1,12 @@
+{{#if @labs.members}}
+{{^has visibility="public"}}
+<span class="global-visibility{{#if feature_image}} is-image{{/if}}">
+	{{#has visibility="paid"}}
+	{{t "Paid-members"}}
+	{{/has}}
+	{{#has visibility="members"}}
+	{{t "Members"}}
+	{{/has}}
+</span>
+{{/has}}
+{{/if}}

@@ -1,0 +1,251 @@
+<footer class="footer">
+    <section class="container">
+        <div class="row">
+            {{!-- About --}}
+            <div class="col s12 m6 l4 u-marginBottom30 u-flexColumnTop" style="display:none">
+                <div class="footer-items u-flexColumnTop u-flex--1">
+                    <h3 class="footer-items-title u-underline u-fontSize22">{{t "About Us"}}</h3>
+                    <div class="footer-b u-flex--1">
+                        <p>{{@site.description}}</p>
+                    </div>
+
+                    {{!-- Social Media - partilas/widget/social-media.hbs --}}
+                    {{> "widget/social-media"}}
+                </div>
+            </div>
+
+            {{!-- Tag Cloud --}}
+            <div class="col s12 m12 u-marginBottom30 u-flexColumnTop">
+                <div class="footer-items footer-tags u-flex--1">
+                    {{!-- <h3 class="footer-items-title u-underline u-fontSize22">{{t "Tags"}}</h3> --}}
+                    <h3 class="footer-items-title u-underline u-fontSize22">Categories</h3>
+                    <div class="buttonSet">
+                        {{!-- {{#get "tags" limit="10" order="desc"}}
+                        {{#foreach tags}}
+                        <a href="{{url absolute="true"}}" title="{{name}}"
+                            class="u-textCapitalize button button--outline-success">{{name}}</a>
+                        {{/foreach}}
+                        {{/get}} --}}
+                        <a href="/blog/360-health" title="360-health" class="u-textCapitalize button button--outline-success">
+                            360 Health
+                        </a> 
+                        <a href="/blog/ayurveda" title="Ayurveda" class="u-textCapitalize button button--outline-success">
+                            Ayurveda
+                        </a> 
+                        <a href="/blog/benefits" title="Benefits" class="u-textCapitalize button button--outline-success">
+                            Benefits
+                        </a> 
+                        <a href="/blog/diets" title="Diets" class="u-textCapitalize button button--outline-success">
+                            Diets
+                        </a> 
+                        <a href="/blog/hair" title="Hair" class="u-textCapitalize button button--outline-success">
+                            Hair
+                        </a> 
+                        <a href="/blog/home-remedies" title="Home Remedies" class="u-textCapitalize button button--outline-success">
+                            Home Remedies
+                        </a> 
+                        <a href="/blog/sexual-health" title="Sexual Health" class="u-textCapitalize button button--outline-success">
+                            Sexual Health
+                        </a> 
+                        <a href="/blog/skin" title="Skin" class="u-textCapitalize button button--outline-success">
+                            Skin
+                        </a> 
+                        <a href="/blog/sleep" title="Sleep" class="u-textCapitalize button button--outline-success">
+                            Sleep
+                        </a> 
+                    </div>
+                </div>
+            </div>
+
+            {{!-- members subscribe --}}
+            {{#if @site.members_enabled}}
+            <div class="col s12 m6 l4 u-marginBottom30 u-flexColumnTop">
+                <div class="footer-items u-flex--1">
+                    <h3 class="footer-items-title u-underline u-fontSize22">{{t "Subscribe"}}</h3>
+                    <p class="u-marginBottom15">{{t "Get the best viral stories straight into your inbox!"}}</p>
+
+                    {{!-- Form --}}
+                    <form class="f-form" data-members-form="subscribe">
+                        <input class="f-form-input u-block subscribe-email u-marginBottom15" data-members-email
+                            placeholder="{{t "youremail@example.com"}}" aria-label="{{t "youremail@example.com"}}"
+                            aria-describedby="f-form-subscribe-btn" autocomplete="off" required />
+
+                        <button id="f-form-subscribe-btn" class="button button--success u-sizeFullWidth" type="submit">
+                            <span class="button-text u-fontSizeBase">{{t "Subscribe"}}</span>
+                            {{> "icons/loader"}}
+                        </button>
+                        <div class="message-success u-paddingTop15 u-hide">
+                            {{{t "<strong>Great!</strong> Check your inbox and click the link to confirm your subscription"}}}
+                        </div>
+                        <div class="message-error u-paddingTop15 u-hide">{{t "Please enter a valid email address!"}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {{/if}}
+
+
+            {{!-- Footer Menu --}}
+            {{#if @site.secondary_navigation}}
+            <div class="col s12 u-textAlignCenter">
+                <nav class="footer-menu u-marginBottom30 ">
+                    {{navigation type="secondary"}}
+                </nav>
+            </div>
+            {{/if}}
+
+
+
+            {{!-- Copy --}}
+            <div class="col s12 u-paddingTop20 u-textAlignCenter u-fontSizeSmaller" style="display:none">
+                &copy; {{date format="YYYY"}} {{@site.title}}.
+                {{!-- Design with <svg class="icon animated infinite pulse" style="color:red;width:15px">
+                    <use xlink:href="#icon-heart"></use>
+                </svg> by <a href="https://godofredo.ninja" title="Developer FullStack.">@GodoFredoNinja</a> --}}
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+
+
+{{!-- Footer from man matters website --}}
+
+<style>
+    .home-casback-strip_terms{font-weight:normal;font-size:12px}
+    .manmatters-footer-payment-stripes{padding:17px 24px 25px 24px;background:#fff}
+    .manmatters-footer-payment-stripes_title{font-weight:bold;font-size:12px;line-height:12px;text-align:center;color:#000;margin-bottom:25px}
+    .manmatters-footer-payment-stripes_icons{display:flex;align-items:center;width:312px;margin-right:auto;margin-left:auto}
+    .manmatters-footer-payment-stripes_icon{width:40px;height:24px;margin-right:4px}
+    .manmatters-footer-payment-stripes_icon:last-of-type{margin-right:0}
+    .manmatters-footer-section{padding-top:35px;padding-bottom:60px;background:#fafafa}
+    .manmatters-footer_icon{width:110px;height:32px;margin-bottom:0;display:block;margin-right:auto;margin-left:auto}
+    .manmatters-footer_heading{margin-bottom:8px;letter-spacing:.1px;line-height:24px;text-align:center}
+    .manmatters-footer_product-links{margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;justify-items:center;padding-right:17px;padding-left:17px;row-gap:15px;max-width:360px;margin-right:auto;margin-left:auto;font-size:14px!important;font-weight:400!important}
+    .manmatters-footer_product{line-height:32px;color:#154166;text-align:center}
+    .manmatters-footer_product:hover{color:#154166}
+    .manmatters-footer_horizontal-line{background-color:#e0e0e0;width:326px;height:1.5px;margin-right:auto;margin-left:auto}
+    .manmatters-footer_products,.manmatters-footer_company,.manmatters-footer_blog{margin-bottom:24px}
+    .manmatters-footer_other .manmatters-footer_product:last-of-type{grid-column:1/-1}
+    .manmatters-footer_other{margin-bottom:16px}
+    .manmatters-footer_copyrights-mobile,.manmatters-footer_privacy-policy,.manmatters-footer_terms{line-height:20px;color:#999;text-align:center;font-size:14px!important;font-weight:normal!important}
+    .manmatters-footer_copyrights-desktop{display:none}
+    .manmatters-footer_copyrights-mobile,.manmatters-footer_terms{margin-bottom:24px}
+    .manmatters-footer_privacy-policy{margin-bottom:16px}
+    .manmatters-footer_social-links img{width:24px}
+    .manmatters-footer_social-links{display:flex;justify-content:center}
+    .manmatters-footer_social-links a{margin-right:28px}
+    .manmatters-footer_social-links a:last-of-type{margin-right:0}
+
+    @media only screen and (min-width: 800px) {
+        .manmatters-footer-payment-stripes{padding:32px 0 25px 0}
+        .manmatters-footer-payment-stripes_title{font-size:18px;line-height:18px;margin-bottom:19px}
+        .manmatters-footer-payment-stripes_icons{width:782px;margin-right:auto;margin-left:auto}
+        .manmatters-footer-payment-stripes_icon{width:98px;height:56px;margin-right:16px}
+        .manmatters-footer-section{padding-top:50px;padding-bottom:50px;display:grid;grid-template-columns:.3fr 1fr}
+        .manmatters-footer_icon{width:130px;height:auto;margin-bottom:15px;justify-self:center}
+        .manmatters-footer_product-links{grid-template-columns:1fr;padding:0;margin:0;font-size:16px!important;line-height:32px}
+        .manmatters-footer_products,.manmatters-footer_company,.manmatters-footer_other,.manmatters-footer_blog{margin-bottom:0}
+        .manmatters-footer_horizontal-line{display:none}.manmatters-footer_all-links{display:flex;justify-content:space-evenly;margin-bottom:32px}
+        .manmatters-footer_copyrights-section{grid-column:1/-1}
+        .manmatters-footer_copyrights-mobile{display:none}
+        .manmatters-footer_copyrights-desktop{display:block;font-weight:normal;font-size:18px;line-height:28px;margin-bottom:16px;text-align:center;color:#999}
+        .manmatters-footer_horizontal-lineDesktop{display:block!important;background-color:#e0e0e0;width:80%;height:1.5px;margin-right:auto;margin-left:auto;grid-column:1/-1;margin-bottom:32px}
+        .manmatters-footer_terms{margin-bottom:0;font-size:18px;line-height:28px}
+        .manmatters-footer_privacy-policy{margin-bottom:0;font-size:18px;line-height:28px;margin-right:18px}
+        .manmatters-footer_privacy-terms{margin-bottom:16px;display:flex;justify-content:center}
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .manmatters-footer-section {grid-template-columns: 0.5fr 1fr;}
+    }
+
+    .footer_section1{
+        text-align: center;
+        margin: auto;
+    }
+    .gplay_logo{
+        max-width: 250px;
+    }
+</style>
+
+<div class="manmatters-footer-section">
+    <div class="footer_section1">
+        <img src="https://ik.manmatters.com/mosaic-wellness/image/upload/f_auto,w_800,c_limit/v1598407576/Man%20Matters/Home%20Page/25.png" alt="" class="manmatters-footer_icon">
+        <a href="https://play.google.com/store/apps/details?id=com.mosaicwellness.manmatters&amp;hl=en_IN&amp;gl=US&amp;utm_source=blog_dl&amp;utm_campaign=footer&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" class="gplay_logo">
+        </a>
+    </div>
+    <div class="manmatters-footer_all-links">
+        <div class="manmatters-footer_products">
+            <!-- <div class="manmatters-footer_heading fs-16 fw-500">Products</div> -->
+            <div class="manmatters-footer_product-links fs-14 fw-500">
+                <a href="/hair-matters/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Hair Matters</a>
+                <a href="/performance-matters/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Performance Matters</a>
+                <a href="/skin-matters/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Skin Matters</a>
+                <a href="/weight-matters/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Weight Matters</a>
+                <a href="/hygiene-matters/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Hygiene Matters</a>
+                <a href="/sleep-matters/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Sleep Matters</a>
+            </div>
+            <div class="manmatters-footer_horizontal-line"></div>
+        </div>
+        <div class="manmatters-footer_company">
+            <!-- <div class="manmatters-footer_heading fs-16 fw-500">Company</div> -->
+            <div class="manmatters-footer_product-links fs-14 fw-500">
+                <a href="/all-product-reviews/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Reviews</a>
+                <a href="/refunds-policy/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Returns &amp; Refunds</a>
+                <a href="/offers-promo-coupons/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Offers &amp; Promos</a>
+                <a href="/contact-us/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Contact Us</a>
+                <a href="/privacy-policy/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Privacy Policy</a>
+                <a href="/schedule-appointment/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Book Free Consultation</a>
+            </div>
+            <div class="manmatters-footer_horizontal-line"></div>
+        </div>
+        <div class="manmatters-footer_blog">
+            <!-- <div class="manmatters-footer_heading fs-16 fw-500">Other</div> -->
+            <div class="manmatters-footer_product-links fs-14 fw-500">
+                <a href="/blog/premature-ejaculation-1o1/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">PE 101</a>
+                <a href="/blog/erectile-dysfunction-101/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Erectile Dysfunction 101</a>
+                <a href="/blog/stages-of-male-pattern-baldness/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Hair loss 101</a>
+                <a href="/blog/what-is-minoxidil/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Minoxidil 101</a>
+            </div>
+            <div class="manmatters-footer_horizontal-line"></div>
+        </div>
+        <div class="manmatters-footer_other">
+            <!-- <div class="manmatters-footer_heading fs-16 fw-500">Other</div> -->
+            <div class="manmatters-footer_product-links fs-14 fw-500">
+                <a href="/ingredients-page/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">All Ingredients</a>
+                <a href="/hair-quality/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Hair Quality Tests</a>
+                <a href="/frequently-asked-questions/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">FAQs</a>
+                <a href="/refer-and-earn/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">Refer and Earn</a>
+                <a href="/about-us/?utm_source=mm_website&amp;utm_medium=mm_footer" class="manmatters-footer_product">About Us</a>
+            </div>
+            <div class="manmatters-footer_horizontal-line"></div>
+        </div>
+
+    </div>
+    <div class="manmatters-footer_horizontal-lineDesktop" style="display: none;"></div>
+    <div class="manmatters-footer_copyrights-section">
+        <div class="manmatters-footer_copyrights-mobile fs-14 fw-normal">© 2020 Mosaic Wellness PVT LTD.<br>All rights reserved.</div>
+        <div class="manmatters-footer_copyrights-desktop">© 2020 Mosaic Wellness PVT LTD. All rights reserved.</div>
+        <div class="manmatters-footer_privacy-terms">
+            <div class="manmatters-footer_privacy-policy fs-14 fw-normal">Privacy Policy</div>
+            <div class="manmatters-footer_terms fs-14 fw-normal">Terms of Service</div>
+        </div>
+        <div class="manmatters-footer_social-links">
+            <a href="https://www.facebook.com/manmatters.official/" class="manmatters-footer_social-fb">
+                <img src="https://manmatters.com/wp-content/uploads/2020/07/layer-4@3x.png" alt="">
+            </a>
+            <a href="https://www.instagram.com/manmatters.official/" class="manmatters-footer_social-linkedIn">
+                <img src="https://manmatters.com/wp-content/uploads/2020/08/insta@3x.png" alt="">
+            </a>
+            <a href="https://www.youtube.com/c/ManMatters" class="manmatters-footer_social-twitter">
+                <img src="https://manmatters.com/wp-content/uploads/2020/08/yt@3x.png" alt="">
+            </a>
+            <a href="https://twitter.com/manmatters_in/" class="manmatters-footer_social-pin">
+                <img src="https://manmatters.com/wp-content/uploads/2020/08/twitter@3x.png" alt="">
+            </a>
+        </div>
+    </div>
+</div>

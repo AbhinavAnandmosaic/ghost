@@ -1,0 +1,13 @@
+{{#if primary_tag}}
+<div id="related" class="post-related-section special-section">
+	<div class="global-heading">
+		<h3>{{t "You might also like"}}</h3>
+		<a href="{{primary_tag.url}}">{{t "See all {primary-tag}" primary-tag=primary_tag.name}}{{>icons/site/arrow_right}}</a>
+	</div>
+	{{#get "posts" limit="5" filter="tags:{{primary_tag.slug}}+id:-{{id}}" include="authors" as |related_posts|}}
+	{{#if related_posts}}
+	{{>sections_content}}
+	{{/if}}
+	{{/get}}
+</div>
+{{/if}}

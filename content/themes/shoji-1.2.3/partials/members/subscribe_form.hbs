@@ -1,0 +1,32 @@
+{{^is "page"}}
+{{#if @labs.members}}
+<div class="subscribe-section">
+	<div class="subscribe-wrap">
+		{{^if @member}}
+		<div class="subscribe-header">
+			<h3>{{t "Subscribe to new posts."}}</h3>
+			<form data-members-form="subscribe" class="subscribe-form">
+				<input data-members-email required type="email" name="email" placeholder="{{t "Your email address"}}" aria-label="{{t "Your email address"}}">
+				<button type="submit">{{t "Subscribe"}}</button>
+				<small class="alert-loading">{{t "Processing your application"}}</small>
+				<small class="alert-success">{{t "Great! Check your inbox and confirm your subscription"}}</small>
+				<small class="alert-error">{{t "There was an error sending the email"}}</small>
+			</form>
+		</div>
+		{{/if}}
+		<div class="subscribe-claim{{#if @site.cover_image}} is-cover{{/if}}">
+			{{#if @member}}
+			<h3>{{t "{site-title} allows readers to discover the most engaging posts, with new updates every week." site-title=@site.title}}</h3>
+			{{else}}
+			<h3>{{t "Subscribe to be notified of new content and support {site-title}, help keep this site independent." site-title=@site.title}}</h3>
+			{{/if}}
+			{{#if @site.cover_image}}
+			<div class="subscribe-cover global-image">
+				{{>images/site_cover_img}}
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>
+{{/if}}
+{{/is}}
